@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pusula Saat</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="title-stack">
+          <span class="title-glow">PUSULA SAAT</span>
+          <span class="title-glow shadow">PUSULA SAAT</span>
+        </div>
+        <p class="subtitle">
+          Zamana pusula ile yön verin. Her parametre elinizin altında.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="card clock-card">
+          <div class="clock-face">
+            <div class="compass-ring">
+              <span>N</span>
+              <span>E</span>
+              <span>S</span>
+              <span>W</span>
+            </div>
+            <div class="hands">
+              <span class="hand hour"></span>
+              <span class="hand minute"></span>
+              <span class="hand second"></span>
+            </div>
+            <div class="center-dot"></div>
+          </div>
+          <div class="digital-panel">
+            <div class="digital-time" id="digitalTime">--:--:--</div>
+            <div class="digital-date" id="digitalDate">--</div>
+            <div class="digital-week" id="weekInfo"></div>
+            <div class="progress" id="dayProgress">
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card controls-card">
+          <h2>Ayarlar</h2>
+          <div class="controls-grid">
+            <label>
+              Zaman Dilimi
+              <select id="timezoneSelect"></select>
+            </label>
+            <label>
+              Dil / Yerel Ayar
+              <select id="localeSelect"></select>
+            </label>
+            <label>
+              Saat Formatı
+              <select id="formatSelect">
+                <option value="24">24 Saat</option>
+                <option value="12">12 Saat</option>
+              </select>
+            </label>
+            <label>
+              Tema Rengi
+              <input type="color" id="accentColor" value="#6cffe0" />
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="showSeconds" checked />
+              <span>Saniye Göster</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="showMilliseconds" />
+              <span>Milisaniye Göster</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="showDate" checked />
+              <span>Tarih Göster</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="showWeekInfo" checked />
+              <span>Hafta Bilgisi</span>
+            </label>
+            <label>
+              Animasyon Yoğunluğu
+              <input type="range" id="motionIntensity" min="0" max="100" value="70" />
+            </label>
+          </div>
+        </section>
+
+        <section class="card world-card">
+          <h2>Dünya Saatleri</h2>
+          <div class="world-controls">
+            <select id="worldSelect"></select>
+            <button id="addWorld">Ekle</button>
+          </div>
+          <ul class="world-list" id="worldList"></ul>
+        </section>
+
+        <section class="card tools-card">
+          <div class="tool">
+            <h2>Alarm</h2>
+            <div class="tool-row">
+              <input type="time" id="alarmTime" />
+              <button id="setAlarm">Kur</button>
+            </div>
+            <p class="tool-status" id="alarmStatus">Alarm ayarlanmadı.</p>
+          </div>
+          <div class="tool">
+            <h2>Kronometre</h2>
+            <div class="tool-row">
+              <button id="startStopwatch">Başlat</button>
+              <button id="lapStopwatch">Tur</button>
+              <button id="resetStopwatch">Sıfırla</button>
+            </div>
+            <p class="tool-status" id="stopwatchDisplay">00:00:00.000</p>
+            <ul class="laps" id="lapList"></ul>
+          </div>
+          <div class="tool">
+            <h2>Geri Sayım</h2>
+            <div class="tool-row">
+              <input type="number" id="timerMinutes" min="0" placeholder="Dakika" />
+              <input type="number" id="timerSeconds" min="0" max="59" placeholder="Saniye" />
+              <button id="startTimer">Başlat</button>
+              <button id="resetTimer">Sıfırla</button>
+            </div>
+            <p class="tool-status" id="timerDisplay">00:00</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
